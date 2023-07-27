@@ -29,6 +29,8 @@ export class Locker extends ActionBase {
         const updatedTimestamp = daysAgoToHumanReadbleDate(this.daysSinceUpdate);
 
         const query = this.buildQuery((this.daysSinceClose ? `closed:<${closedTimestamp} ` : "") + (this.daysSinceUpdate ? `updated:<${updatedTimestamp} ` : "") + "is:closed is:unlocked");
+        let x = await this.github.hasWriteAccess()
+        console.log(x)
 
         for await (const page of this.github.query({ q: query })) {
             await Promise.all(
