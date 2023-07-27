@@ -22,3 +22,5 @@ jobs:
           daysSinceClose: 45
           daysSinceUpdate: 3
           ignoreLabels: more votes needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
