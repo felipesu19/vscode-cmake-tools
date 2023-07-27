@@ -1,4 +1,5 @@
 name: Locker
+permissions: write-all
 on:
   workflow_dispatch:
    inputs:
@@ -9,7 +10,6 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - name: Checkout Actions
         uses: actions/checkout@v2
