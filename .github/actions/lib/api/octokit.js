@@ -27,6 +27,9 @@ class OctoKit {
     // TODO: just iterate over the issues in a page here instead of making caller do it
     async *query(query) {
         const q = query.q + ` repo:${this.params.owner}/${this.params.repo}`;
+        console.log("We got here")
+        let x = await this.octokit.auth()
+        console.log(`the await result ${x}`);
         console.log(`Querying for ${q}:`);
         const options = this.octokit.search.issuesAndPullRequests.endpoint.merge({
             ...query,
