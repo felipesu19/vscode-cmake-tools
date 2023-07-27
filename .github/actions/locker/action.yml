@@ -3,7 +3,7 @@ description: Lock closed issues and PRs after some time has passed
 inputs:
   token:
     description: GitHub token with issue, comment, and label read/write permissions
-    default: ${{ github.token }}
+    default: ${{ secrets.GH_PAT }}
   daysSinceClose:
     description: Days to wait since closing before locking the item
     required: true
