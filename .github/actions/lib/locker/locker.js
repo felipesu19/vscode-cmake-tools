@@ -15,6 +15,8 @@ class Locker extends actionBase_1.ActionBase {
         this.daysSinceUpdate = daysSinceUpdate;
     }
     async run() {
+        console.log("We hit this, this is a very long string to make a point")
+        console.log("if we didn't make it here we probably failed on initialization")
         const closedTimestamp = utils_1.daysAgoToHumanReadbleDate(this.daysSinceClose);
         const updatedTimestamp = utils_1.daysAgoToHumanReadbleDate(this.daysSinceUpdate);
         const query = this.buildQuery((this.daysSinceClose ? `closed:<${closedTimestamp} ` : "") + (this.daysSinceUpdate ? `updated:<${updatedTimestamp} ` : "") + "is:closed is:unlocked");
