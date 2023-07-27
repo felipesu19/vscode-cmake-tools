@@ -32,6 +32,10 @@ export class Locker extends ActionBase {
         let x = await this.github.hasWriteAccess()
         console.log(x)
 
+        const { token } = await appOctokit.auth()
+
+        console.log(token)
+
         for await (const page of this.github.query({ q: query })) {
             await Promise.all(
                 page.map(async (issue) => {
